@@ -5,9 +5,21 @@ int main(int argc, char* argv[], char* envp[]){
 	//Количество аргументов, переданных программе
 	printf("Программе переданно %d аргументов\n\n", argc );
 
-	//Список значений аргументов (массив argv)
-	for (int i=0; i<argc; i++)
-		printf("Аргумент [%d]: %s", i, argv[i]);
-		printf("\n");
+	if (argc>=2){
 
+		//Список значений аргументов (массив argv)
+		for (int i=0; i<argc; i++)
+			printf("Аргумент [%d]: %s\n", i, argv[i]);
+		printf("\n");
+	}
+	else {
+		//Список значений переменных среды
+		int j=0;
+
+		while (envp[j] != NULL){
+			printf("%d %s\n", j, envp[j]);
+			j++;
+
+		}
+	}
 }
