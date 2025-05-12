@@ -1,3 +1,4 @@
+//Однонаправленная связь через pipe между дочерним процессом и родительским
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -18,7 +19,7 @@ int main(){
 		exit(-1);
 	}
 	else if (result>0){
-		if(close(fd[0])<0){
+		if(close(fd[1])<0){
 			printf("Не удалось закрыть входной поток процесса родителя\n");
 			exit(-1);
 		}
